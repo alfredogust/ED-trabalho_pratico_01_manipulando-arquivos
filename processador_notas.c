@@ -20,10 +20,13 @@ void lerDados(Aluno alunos[], int *num_alunos);
 void calcularMedia(Aluno *aluno);
 void determinarSituacao(Aluno *aluno);
 void escreverSituacaoFinal(Aluno alunos[], int num_alunos);
+void executarTestes();
 
 int main() {
     Aluno alunos[MAX_ALUNOS];
     int num_alunos = 0;
+
+    executarTestes();
 
     lerDados(alunos, &num_alunos);
 
@@ -87,4 +90,46 @@ void escreverSituacaoFinal(Aluno alunos[], int num_alunos) {
     }
 
     fclose(arquivo);
+}
+
+
+void executarTestes() {
+    printf("Executando testes...\n");
+
+    // Teste 1
+    Aluno teste1;
+    strcpy(teste1.nome, "João");
+    teste1.notas[0] = 7.0;
+    teste1.notas[1] = 7.0;
+    teste1.notas[2] = 7.0;
+    teste1.notas[3] = 7.0;
+    teste1.num_notas = 4;
+    calcularMedia(&teste1);
+    determinarSituacao(&teste1);
+    printf("Teste 1: %s, %.2f, %s\n", teste1.nome, teste1.media, teste1.situacao);
+
+    // Teste 2
+    Aluno teste2;
+    strcpy(teste2.nome, "Maria");
+    teste2.notas[0] = 3.0;
+    teste2.notas[1] = 3.0;
+    teste2.notas[2] = 3.0;
+    teste2.notas[3] = 3.0;
+    teste2.num_notas = 4;
+    calcularMedia(&teste2);
+    determinarSituacao(&teste2);
+    printf("Teste 2: %s, %.2f, %s\n", teste2.nome, teste2.media, teste2.situacao);
+
+    // Teste 3
+    Aluno teste3;
+    strcpy(teste3.nome, "José");
+    teste3.notas[0] = 6.0;
+    teste3.notas[1] = 7.0;
+    teste3.notas[2] = 8.0;
+    teste3.notas[3] = 9.0;
+    teste3.num_notas = 4;
+    calcularMedia(&teste3);
+    determinarSituacao(&teste3);
+    printf("Teste 3: %s, %.2f, %s\n", teste3.nome, teste3.media, teste3.situacao);
+
 }
